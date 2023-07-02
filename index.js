@@ -22,9 +22,9 @@ router.get('/view', function (req, res) {
     console.log(list);
     res.send(list.toString());
 });
-
+const port = process.env.PORT || 80;
 //add the router
 app.use('/', router);
-app.listen(80, () => {
+app.listen(port, () => {
     console.log('Server is running on port 80');
 });
