@@ -4,7 +4,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const router = express.Router();
 const app = express();
-
+const list = [];
 app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
@@ -12,13 +12,15 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 router.get('/',function(req,res){
     // console.log(document.cookie);
     console.log(req.url);
+    list.push(req.url);
+    console.log(list)
     res.sendFile(path.join(__dirname+'/index.html'));
     //__dirname : It will resolve to your project folder.
 });
 
-router.post('/log', function (req, res) {
-    console.log(req.body.message);
-    res.sendStatus(200);
+router.get('/view', function (req, res) {
+    console.log(list);
+    res.send(list.toString());
 });
 
 //add the router
