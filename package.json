@@ -1,4 +1,5 @@
 {
+  "homepage": "https://secioreanustefanita.github.io/SiteTestCTF/",
   "name": "jssite",
   "version": "1.0.0",
   "description": "",
@@ -11,5 +12,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.18.2"
-  }
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  },
+"predeploy": "npm run build",
+"deploy": "gh-pages -d build"
 }
